@@ -95,25 +95,76 @@
   }));
 
   let currentProduct = null;
-  function showProduct(id) {
+  const esc = (t) => String(t).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+  const pending = (what) => `<p class="pending"><span aria-hidden="true">●</span> ${what} a confirmar a partir do rótulo oficial.</p>`;
+  const set = (sel, html) => { $(sel, productDlg).innerHTML = html; };
+  const txt = (sel, t) => { $(sel, productDlg).textContent = t; };
+
+  // separadores dentro do detalhe
+  const pTabs = $$('.pd__tabs [role="tab"]', productDlg);
+  function selectPTab(tab, focus = false) {
+    pTabs.forEach((t) => {
+      const on = t === tab;
+      t.setAttribute('aria-selected', String(on));
+      t.tabIndex = on ? 0 : -1;
+      $(`#${t.getAttribute('aria-controls')}`).hidden = !on;
+      if (on && focus) t.focus();
+    });
+  }
+  pTabs.forEach((t, i) => {
+    t.addEventListener('click', () => selectPTab(t));
+    t.addEventListener('keydown', (e) => {
+      const d = e.key === 'ArrowRight' ? 1 : e.key === 'ArrowLeft' ? -1 : 0;
+      if (d) { e.preventDefault(); selectPTab(pTabs[(i + d + pTabs.length) % pTabs.length], true); }
+    });
+  });
+
+  function showProduct(id, tab = 0) {
     const p = byId[id];
     if (!p) return;
     currentProduct = id;
+    const F = D.facts;
+    const L = p.label || {};
+    const energy = p.cat === 'Bebida energética';
     const im = $('[data-p-img]', productDlg);
     im.src = `assets/produtos/fizz_${id}.webp`;
     im.alt = `Garrafa FIZZ ${p.name}`;
-    $('[data-p-cat]', productDlg).textContent = p.cat;
-    $('[data-p-name]', productDlg).textContent = `FIZZ ${p.name}`;
-    $('[data-p-desc]', productDlg).textContent = p.desc;
-    $('[data-p-disp]', productDlg).textContent = D.availability;
-    productDlg.style.setProperty('--c', p.color);
+    txt('[data-p-cat]', p.cat);
+    txt('[data-p-name]', `FIZZ ${p.name}`);
+    txt('[data-p-tagline]', p.tagline);
+    set('[data-p-chips]', [energy ? 'Bebida energética' : 'Refrigerante gaseificado', '350 ml', 'Feito em Moçambique']
+      .map((c) => `<li>${c}</li>`).join(''));
+    // Conhecer
+    txt('[data-p-taste]', p.taste);
+    set('[data-p-pairs]', p.pairs.map((x) => `<li>${esc(x)}</li>`).join(''));
+    txt('[data-p-serve]', p.serve || F.serve);
+    // Composição
+    txt('[data-p-type]', energy ? 'Bebida energética da família FIZZ.'
+      : `Refrigerante gaseificado com sabor a ${p.name.toLowerCase()}.`);
+    set('[data-p-ingredients]', L.ingredients ? `<p>${esc(L.ingredients)}</p>` : pending('Lista de ingredientes'));
+    set('[data-p-nutrition]', L.nutrition && L.nutrition.length
+      ? `<table class="ntable"><tbody>${L.nutrition.map(([k, v]) => `<tr><th scope="row">${esc(k)}</th><td>${esc(v)}</td></tr>`).join('')}</tbody></table>`
+      : `<table class="ntable is-pending"><tbody>${['Energia', 'Hidratos de carbono', 'dos quais açúcares', 'Sódio']
+        .map((k) => `<tr><th scope="row">${k}</th><td>—</td></tr>`).join('')}</tbody></table>${pending('Valores')}`);
+    set('[data-p-allergens]', L.allergens ? `<p>${esc(L.allergens)}</p>` : pending('Informação'));
+    txt('[data-p-format]', F.format);
+    // Para negócios
+    txt('[data-p-format2]', F.format);
+    txt('[data-p-pack]', F.pack);
+    txt('[data-p-made]', F.made);
+    txt('[data-p-disp]', F.availability);
+
+    productDlg.style.setProperty('--c', p.tint || p.color);
+    productDlg.classList.toggle('is-dark', id === 'energy' || id === 'cola');
+    selectPTab(pTabs[tab]);
     openDialog(productDlg);
+    productDlg.scrollTop = 0;
   }
   document.addEventListener('click', (e) => {
     const t = e.target.closest('[data-product]');
     if (!t || t.closest('dialog')) return;
     e.preventDefault();
-    showProduct(t.dataset.product);
+    showProduct(t.dataset.product, t.dataset.productTab ? Number(t.dataset.productTab) : 0);
   });
   $('[data-p-quote]').addEventListener('click', (e) => {
     e.preventDefault();

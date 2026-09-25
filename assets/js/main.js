@@ -66,6 +66,7 @@
   const heroWord = $('.hero__word');
   const topbar = $('.topbar');
   const marquees = $$('[data-marquee]').map((el) => ({ el, track: $('.marquee__track', el) }));
+  const driftRows = $$('[data-drift]').map((el) => ({ el, dir: Number(el.dataset.drift) }));
   const fUI = {
     index: $('[data-f-index]'), name: $('[data-f-name]'), cat: $('[data-f-cat]'), link: $('[data-f-link]'),
   };
@@ -162,14 +163,15 @@
       }
     }
 
-    /* B · oito sabores */
-    const bAlpha = smooth(clamp((tAB - 0.28) / 0.55)) * (1 - smooth(clamp((tBC - 0.35) / 0.5)));
+    /* B · oito sabores — só entram quando o bloco dos sabores chega (a galeria fica limpa) */
+    const tB = clamp((s - (flavorsTop - vh * 0.85)) / (vh * 0.85));
+    const bAlpha = smooth(clamp((tB - 0.2) / 0.6)) * (1 - smooth(clamp((tBC - 0.35) / 0.5)));
     const stepF = clamp((s - flavorsTop) / Math.max(1, flavorsH - vh)) * (IDS.length - 1);
     let i = Math.floor(stepF), e = easeInOut(clamp((stepF - i - 0.35) / 0.65));
     if (i >= IDS.length - 1) { i = IDS.length - 1; e = 0; }
     if (bAlpha > 0.01) {
-      const dy = (1 - easeOut(tAB)) * vh * 0.65 - easeInOut(tBC) * vh * 0.6;
-      const rot = (1 - tAB) * 14 - tBC * 10;
+      const dy = (1 - easeOut(tB)) * vh * 0.7 - easeInOut(tBC) * vh * 0.6;
+      const rot = (1 - tB) * 14 - tBC * 10;
       const at = (pose) => ({ ...pose, r: pose.r + rot });
       const n1 = IDS[i + 1], n2 = IDS[i + 2];
       if (n2) put(n2, at(lerpPose(P.enter, P.next, e)), 0, dy, bAlpha, t, i + 2);
@@ -219,7 +221,7 @@
     const p = byId[IDS[n]];
     fUI.index.textContent = String(n + 1).padStart(2, '0');
     fUI.name.textContent = p.name;
-    fUI.cat.textContent = p.cat;
+    fUI.cat.textContent = p.tagline;
     fUI.link.dataset.product = p.id;
     fUI.link.setAttribute('aria-label', `Ver produto FIZZ ${p.name}`);
     flavorsPin.style.setProperty('--tint', mix(p.color, 0.16));
@@ -238,6 +240,14 @@
       if (r.bottom < 0 || r.top > vh) continue;
       const p = clamp((vh - r.top) / (vh + r.height));
       m.track.style.setProperty('--mx', `${lerp(vw * 0.25, -(m.track.scrollWidth * 0.5) + vw * 0.1, p).toFixed(1)}px`);
+    }
+    for (const d of driftRows) {
+      const r = d.el.getBoundingClientRect();
+      if (r.bottom < -100 || r.top > vh + 100) continue;
+      const p = clamp((vh - r.top) / (vh + r.height));
+      const span = Math.max(0, d.el.scrollWidth - vw) + vw * 0.12;
+      const x = d.dir < 0 ? -p * span : -span + p * span;
+      d.el.style.setProperty('--dx', `${x.toFixed(1)}px`);
     }
     for (const g of dabGroups) {
       const r = g.box.getBoundingClientRect();

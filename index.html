@@ -35,6 +35,7 @@
     <nav class="topbar__links" id="menu" aria-label="Principal">
       <a href="#sabores">Sabores</a>
       <a href="#produtos">Produtos</a>
+      <a href="#sobre">A FIZZ</a>
       <a href="#contactos" data-tab="cotacao">Distribuição</a>
       <a href="#contactos" data-tab="geral">Contactos</a>
     </nav>
@@ -109,13 +110,25 @@
           <span data-reveal>cada momento</span>
         </h2>
 
-        <div class="sabor__grid">
-          <figure class="moment" data-reveal>
-            <img src="assets/img/momento.webp" alt="Pessoa a beber FIZZ bem gelada" width="312" height="400" loading="lazy">
-          </figure>
-          <div class="sabor__text" data-reveal>
-            <p>Na praia, em casa ou a caminho: abre uma FIZZ bem gelada e deixa a frescura falar mais alto.</p>
+        <div class="moments">
+          <p class="moments__lead" data-reveal>Na praia, na festa, em casa ou a caminho: abre uma FIZZ bem gelada e deixa a frescura falar mais alto.</p>
+          <div class="moments__rows">
+            <ul class="moments__row" data-drift="-1">
+              <li><img src="assets/img/momentos/m01.webp" alt="Adepto com FIZZ no estádio" width="414" height="414" loading="lazy"></li>
+              <li><img src="assets/img/momentos/m02.webp" alt="Jovem com FIZZ Laranja no sofá" width="414" height="414" loading="lazy"></li>
+              <li><img src="assets/img/momentos/m03.webp" alt="FIZZ Limão na areia da praia" width="414" height="414" loading="lazy"></li>
+              <li><img src="assets/img/momentos/m04.webp" alt="Mulher na praia com FIZZ" width="414" height="414" loading="lazy"></li>
+              <li><img src="assets/img/momentos/m05.webp" alt="Jovem com FIZZ Laranja na rua" width="414" height="414" loading="lazy"></li>
+            </ul>
+            <ul class="moments__row" data-drift="1">
+              <li><img src="assets/img/momentos/m06.webp" alt="FIZZ Laranja numa festa" width="414" height="414" loading="lazy"></li>
+              <li><img src="assets/img/momentos/m07.webp" alt="Sorriso com FIZZ Limão ao pôr do sol" width="414" height="414" loading="lazy"></li>
+              <li><img src="assets/img/momentos/m08.webp" alt="FIZZ Laranja ao pôr do sol" width="414" height="414" loading="lazy"></li>
+              <li><img src="assets/img/momentos/m09.webp" alt="Mãos com FIZZ Limão" width="414" height="414" loading="lazy"></li>
+              <li><img src="assets/img/momentos/m10.webp" alt="Jovem com FIZZ Laranja" width="414" height="414" loading="lazy"></li>
+            </ul>
           </div>
+          <a class="moments__link" href="https://www.facebook.com/fizzmocambique/photos" target="_blank" rel="noopener">Mais momentos FIZZ no Facebook <span aria-hidden="true">→</span></a>
         </div>
 
         <!-- Os oito sabores, um a um ao longo do scroll -->
@@ -153,12 +166,29 @@
       </section>
     </div>
 
+    <!-- Dois caminhos: fãs e negócios -->
+    <section class="paths" aria-labelledby="paths-title">
+      <h2 class="sr-only" id="paths-title">Como queres conhecer a FIZZ?</h2>
+      <a class="path path--fan" href="#produtos">
+        <span class="path__eyebrow">Sou fã</span>
+        <span class="path__title">Conhece cada sabor</span>
+        <span class="path__text">Sabor, combinações, composição e a história da FIZZ por dentro.</span>
+        <span class="path__arrow" aria-hidden="true">→</span>
+      </a>
+      <a class="path path--biz" href="#contactos" data-tab="cotacao">
+        <span class="path__eyebrow">Tenho um negócio</span>
+        <span class="path__title">Compra por grosso</span>
+        <span class="path__text">Revenda, restauração e instituições: formatos, caixas e pedido de cotação.</span>
+        <span class="path__arrow" aria-hidden="true">→</span>
+      </a>
+    </section>
+
     <!-- 4 · PRODUTOS -->
     <section class="produtos" id="produtos" aria-labelledby="produtos-title">
       <header class="section-head">
         <p class="eyebrow">Produtos</p>
         <h2 class="section-title" id="produtos-title">Escolhe o teu FIZZ</h2>
-        <p class="section-lead">Imagens ilustrativas. Embalagens e disponibilidade são confirmadas pela equipa comercial da Mopani.</p>
+        <p class="section-lead">Toca num sabor para conhecer o perfil, as combinações e a composição.</p>
       </header>
       <div class="filters" role="group" aria-label="Filtrar produtos">
         <button type="button" class="chip is-active" data-filter="all" aria-pressed="true">Todos</button>
@@ -171,6 +201,7 @@
             <span class="pcard__media"><img src="assets/produtos/fizz_uva_card.webp" alt="Garrafa FIZZ Uva" width="171" height="520" loading="lazy"></span>
             <span class="pcard__cat">Refrigerante</span>
             <span class="pcard__name">Uva</span>
+            <span class="pcard__tag">Intensa, doce e cheia de cor.</span>
             <span class="pcard__more">Ver detalhes</span>
           </a>
         </li>
@@ -179,6 +210,7 @@
             <span class="pcard__media"><img src="assets/produtos/fizz_framboesa_card.webp" alt="Garrafa FIZZ Framboesa" width="161" height="520" loading="lazy"></span>
             <span class="pcard__cat">Refrigerante</span>
             <span class="pcard__name">Framboesa</span>
+            <span class="pcard__tag">Frutos vermelhos com um toque ácido.</span>
             <span class="pcard__more">Ver detalhes</span>
           </a>
         </li>
@@ -187,6 +219,7 @@
             <span class="pcard__media"><img src="assets/produtos/fizz_limao_card.webp" alt="Garrafa FIZZ Limão" width="179" height="520" loading="lazy"></span>
             <span class="pcard__cat">Refrigerante</span>
             <span class="pcard__name">Limão</span>
+            <span class="pcard__tag">O clássico verde-néon.</span>
             <span class="pcard__more">Ver detalhes</span>
           </a>
         </li>
@@ -195,6 +228,7 @@
             <span class="pcard__media"><img src="assets/produtos/fizz_cola_card.webp" alt="Garrafa FIZZ Cola" width="159" height="520" loading="lazy"></span>
             <span class="pcard__cat">Refrigerante</span>
             <span class="pcard__name">Cola</span>
+            <span class="pcard__tag">O sabor de sempre.</span>
             <span class="pcard__more">Ver detalhes</span>
           </a>
         </li>
@@ -203,6 +237,7 @@
             <span class="pcard__media"><img src="assets/produtos/fizz_laranja_card.webp" alt="Garrafa FIZZ Laranja" width="172" height="520" loading="lazy"></span>
             <span class="pcard__cat">Refrigerante</span>
             <span class="pcard__name">Laranja</span>
+            <span class="pcard__tag">Sumarenta e alegre.</span>
             <span class="pcard__more">Ver detalhes</span>
           </a>
         </li>
@@ -211,6 +246,7 @@
             <span class="pcard__media"><img src="assets/produtos/fizz_ananas_card.webp" alt="Garrafa FIZZ Ananás" width="152" height="520" loading="lazy"></span>
             <span class="pcard__cat">Refrigerante</span>
             <span class="pcard__name">Ananás</span>
+            <span class="pcard__tag">Tropical do primeiro ao último gole.</span>
             <span class="pcard__more">Ver detalhes</span>
           </a>
         </li>
@@ -219,6 +255,7 @@
             <span class="pcard__media"><img src="assets/produtos/fizz_litchi_card.webp" alt="Garrafa FIZZ Litchi" width="153" height="520" loading="lazy"></span>
             <span class="pcard__cat">Refrigerante</span>
             <span class="pcard__name">Litchi</span>
+            <span class="pcard__tag">Exótico e delicado.</span>
             <span class="pcard__more">Ver detalhes</span>
           </a>
         </li>
@@ -227,9 +264,25 @@
             <span class="pcard__media"><img src="assets/produtos/fizz_energy_card.webp" alt="Garrafa FIZZ Energy Drink" width="162" height="520" loading="lazy"></span>
             <span class="pcard__cat">Bebida energética</span>
             <span class="pcard__name">Energy Drink</span>
+            <span class="pcard__tag">A energia que te leva mais longe.</span>
             <span class="pcard__more">Ver detalhes</span>
           </a>
         </li>
+      </ul>
+    </section>
+
+    <!-- A FIZZ POR DENTRO -->
+    <section class="inside" id="sobre" aria-labelledby="inside-title">
+      <div class="inside__intro">
+        <p class="eyebrow">A FIZZ por dentro</p>
+        <h2 class="section-title" id="inside-title">Feita em Moçambique</h2>
+        <p class="inside__text" data-reveal>A FIZZ é produzida pela Mopani Internacional, fundada em 2006 na Machava. Foi a primeira a trazer para Moçambique refrigerantes de cores vivas, como o verde-néon do FIZZ Limão, e hoje produz no sul e no norte do país.</p>
+      </div>
+      <ul class="stats">
+        <li class="stat" data-reveal><b>2006</b><span>Fundação da Mopani Internacional, na Machava</span></li>
+        <li class="stat" data-reveal><b>2</b><span>Fábricas: Maputo, no sul, e Nampula, no norte</span></li>
+        <li class="stat" data-reveal><b>40&nbsp;000</b><span>Caixas por dia de capacidade de produção (24 × 350 ml)</span></li>
+        <li class="stat" data-reveal><b>8</b><span>Sabores na gama, do Limão ao Energy Drink</span></li>
       </ul>
     </section>
 
@@ -344,9 +397,9 @@
             <p><a href="https://www.facebook.com/fizzmocambique" target="_blank" rel="noopener">Facebook · fizzmocambique</a></p>
             <p><a href="https://www.instagram.com/fizz_mopani/" target="_blank" rel="noopener">Instagram · @fizz_mopani</a></p>
           </div>
-          <div class="card" id="sobre">
-            <h3>Sobre</h3>
-            <p>FIZZ é uma marca da Mopani Internacional.</p>
+          <div class="card">
+            <h3>Mopani Internacional</h3>
+            <p>Machava Socimol, Matola</p>
             <p><a href="https://mopani.co.mz/home/aboutus/" target="_blank" rel="noopener">Conhecer a Mopani</a></p>
           </div>
         </aside>
@@ -387,6 +440,7 @@
         <a href="#inicio">Início</a>
         <a href="#sabores">Sabores</a>
         <a href="#produtos">Produtos</a>
+        <a href="#sobre">A FIZZ</a>
         <a href="#contactos" data-tab="cotacao">Distribuição</a>
         <a href="#contactos" data-tab="fornecedores">Fornecedores</a>
         <a href="#contactos" data-tab="geral">Contactos</a>
@@ -399,22 +453,55 @@
     <p class="footer__legal">FIZZ · Mopani Internacional · <a href="#privacidade" data-open="privacidade">Privacidade</a></p>
   </footer>
 
-  <!-- Detalhe de produto -->
+  <!-- Detalhe de produto: Conhecer (fãs) · Composição · Para negócios -->
   <dialog class="modal modal--product" id="produto" aria-labelledby="p-name">
     <button class="modal__close" type="button" data-close aria-label="Fechar">×</button>
-    <div class="pd">
+    <header class="pd__hero">
       <div class="pd__media"><img data-p-img src="" alt="" width="400" height="1200"></div>
-      <div class="pd__body">
-        <p class="eyebrow" data-p-cat></p>
+      <div class="pd__head">
+        <p class="pd__cat" data-p-cat></p>
         <h2 class="pd__name" id="p-name" data-p-name></h2>
-        <p class="pd__desc" data-p-desc></p>
-        <dl class="pd__facts">
-          <div><dt>Embalagem</dt><dd>A confirmar com a Mopani</dd></div>
-          <div><dt>Disponibilidade</dt><dd data-p-disp></dd></div>
-        </dl>
-        <a class="btn" href="#contactos" data-p-quote>Pedir cotação</a>
+        <p class="pd__tagline" data-p-tagline></p>
+        <ul class="pd__chips" data-p-chips></ul>
       </div>
+    </header>
+
+    <div class="pd__tabs" role="tablist" aria-label="Informação do produto">
+      <button type="button" role="tab" id="pt-conhecer" aria-controls="pp-conhecer" aria-selected="true">Conhecer</button>
+      <button type="button" role="tab" id="pt-composicao" aria-controls="pp-composicao" aria-selected="false" tabindex="-1">Composição</button>
+      <button type="button" role="tab" id="pt-negocio" aria-controls="pp-negocio" aria-selected="false" tabindex="-1"><span class="hide-sm">Para </span>negócios</button>
     </div>
+
+    <section class="pd__panel" role="tabpanel" id="pp-conhecer" aria-labelledby="pt-conhecer">
+      <div class="pd__cards">
+        <article class="pbox pbox--wide"><h3>O sabor</h3><p class="pbox__big" data-p-taste></p></article>
+        <article class="pbox"><h3>Combina com</h3><ul class="pbox__list" data-p-pairs></ul></article>
+        <article class="pbox"><h3>Como servir</h3><p data-p-serve></p></article>
+      </div>
+    </section>
+
+    <section class="pd__panel" role="tabpanel" id="pp-composicao" aria-labelledby="pt-composicao" hidden>
+      <div class="pd__cards">
+        <article class="pbox pbox--wide"><h3>O que é</h3><p class="pbox__big" data-p-type></p></article>
+        <article class="pbox"><h3>Ingredientes</h3><div data-p-ingredients></div></article>
+        <article class="pbox"><h3>Informação nutricional <small>por 100 ml</small></h3><div data-p-nutrition></div></article>
+        <article class="pbox"><h3>Alergénios e advertências</h3><div data-p-allergens></div></article>
+        <article class="pbox"><h3>Formato</h3><p class="pbox__big" data-p-format></p></article>
+      </div>
+    </section>
+
+    <section class="pd__panel" role="tabpanel" id="pp-negocio" aria-labelledby="pt-negocio" hidden>
+      <div class="pd__cards">
+        <article class="pbox"><h3>Formato</h3><p class="pbox__big" data-p-format2></p></article>
+        <article class="pbox"><h3>Caixa</h3><p class="pbox__big" data-p-pack></p></article>
+        <article class="pbox"><h3>Produção</h3><p data-p-made></p></article>
+        <article class="pbox"><h3>Disponibilidade e preço</h3><p data-p-disp></p></article>
+      </div>
+      <div class="pd__cta">
+        <p>Revenda, restauração ou compras institucionais? Pede uma cotação e a equipa comercial responde-te.</p>
+        <a class="btn" href="#contactos" data-p-quote>Pedir cotação deste sabor</a>
+      </div>
+    </section>
   </dialog>
 
   <!-- Privacidade -->

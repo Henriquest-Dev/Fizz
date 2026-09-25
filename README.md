@@ -18,9 +18,11 @@ python3 -m http.server 8000
 | Âncora | Conteúdo |
 | --- | --- |
 | `#inicio` | Hero verde com Limão + Cola à frente de «REFRESCANTE»; «Ver produtos» e «Comprar por grosso» |
-| `#sabores` | Título editorial, fotografia, e os oito sabores um a um ao longo do scroll (nome, cor e botão mudam com o sabor) |
+| `#sabores` | Título editorial, galeria de momentos (campanhas FIZZ, em duas filas que deslizam com o scroll) e os oito sabores um a um |
 | `#gama` | As oito garrafas abrem-se em arco sobre um palco |
-| `#produtos` | Grelha dos oito produtos com filtros (Refrigerantes / Bebida energética) e detalhe em janela |
+| — | Dois caminhos: **Sou fã** (conhecer os sabores) e **Tenho um negócio** (compra por grosso) |
+| `#produtos` | Grelha dos oito produtos com filtros. O detalhe tem três separadores: **Conhecer** (sabor, combinações, como servir), **Composição** (o que é, ingredientes, tabela nutricional, alergénios, formato) e **Para negócios** (formato, caixa, produção, disponibilidade e pedido de cotação) |
+| `#sobre` | A FIZZ por dentro: 2006, duas fábricas (Maputo e Nampula), 40 000 caixas/dia, oito sabores |
 | `#contactos` | Separadores **Compra por grosso** (pedido de cotação), **Fornecedores** (proposta) e **Geral**, mais contactos directos e «Sobre» |
 | `#newsletter` | Subscrição de novidades |
 
@@ -33,7 +35,7 @@ assets/js/data.js        catálogo e destinos dos formulários  ← configurar a
 assets/js/main.js        canvas sticky e coreografia por scroll
 assets/js/forms.js       menu, separadores, filtros, detalhe, validação e envio
 assets/produtos/         oito recortes limpos (WebP grande + versão para cartões)
-assets/img/              logótipo e fotografia editorial
+assets/img/              logótipo e galeria de momentos (campanhas FIZZ)
 docs/                    guias e catalogo.json do kit
 ```
 
@@ -80,10 +82,20 @@ endpoints: {
 },
 ```
 
+## Composição dos produtos
+
+A lista de ingredientes, a tabela nutricional e os alergénios da FIZZ **não estão publicados online**. O site da Mopani não estava acessível durante a pesquisa, as lojas online (Krolyc, Ranxo) bloqueiam a leitura e não há registo no Open Food Facts. O separador «Composição» mostra o que está confirmado (tipo de bebida, 350 ml, produção em Moçambique). Os restantes campos aparecem como «a confirmar a partir do rótulo oficial».
+
+Para preencher, copiar o rótulo traseiro de cada garrafa para `label` em `assets/js/data.js` (há um exemplo no topo do ficheiro). O site passa a mostrar os valores automaticamente.
+
+Fontes dos factos usados: mopani.co.mz/home/aboutus (fundação em 2006, Machava Socimol, fábricas em Maputo e Nampula, 40 000 caixas de 24 × 350 ml por dia) e lojas moçambicanas que vendem FIZZ Limão, Uva e Energy Drink de 350 ml.
+
+As combinações sugeridas («Combina com») e as descrições de sabor são texto editorial, inspirado nas campanhas da FIZZ.
+
 ## A confirmar antes da publicação comercial
 
 - Contactos de vendas (sales@mopani.co.mz, +258 82 303 7714), tal como indicado no guia.
 - Disponibilidade actual de cada sabor (sobretudo Uva), embalagens e volumes. O site mostra «A confirmar com a Mopani» e não mostra preços.
 - O texto da política de privacidade é uma base a validar.
 - Os recortes são reconstruções; usar ficheiros oficiais e um logótipo vectorial quando existirem.
-- A fotografia editorial vem de uma publicação pública de @fizz_mopani.
+- As imagens da galeria são publicações públicas da página FIZZ no Facebook (pasta `referencias/facebook` do kit).
