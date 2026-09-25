@@ -1,0 +1,18 @@
+# FIZZ — guia para criar o website
+
+## Referência do vídeo
+O MP4 fornecido tem 7,3 s, 1280 × 960 px e 30 fps. É uma gravação acelerada de scroll, não a duração real desejável da experiência. Abre numa secção escura com duas embalagens flutuantes e título enorme atrás; transita por uma borda rasgada para uma secção rosa clara com tipografia condensada gigante e uma pessoa recortada; termina com quatro embalagens alinhadas sobre pedestais e regressa ao início. Há movimentos de translação, inclinação, escala e parallax, enquanto a página desce. Os fundos, títulos e botões devem ser HTML/CSS para manter legibilidade e resposta em telemóvel.
+
+## Adaptação FIZZ
+1. Hero verde profundo (#103D24 como proposta, não código oficial da marca), logótipo e texto «ALTAMENTE REFRESCANTE» em HTML. Frame 001–012: FIZZ Limão e Cola em camadas, com leve movimento ao scroll.
+2. Secção editorial creme/laranja claro, título grande «SABOR QUE ACOMPANHA CADA MOMENTO». Frame 013–024: Laranja entra e cresce; copy e botão em HTML. Separador ondulado SVG/CSS no lugar da borda rasgada do exemplo.
+3. Gama sobre fundo verde pálido. Frame 025–036: Laranja, Cola e Limão abrem em três posições; adicionar pedestais e nomes dos sabores com CSS. Os frames têm 1600 × 900, RGBA transparente, para se sobreporem a qualquer cor de fundo.
+
+## Implementação
+Fixar um canvas numa secção de cerca de 300vh; mapear o scroll normalizado 0–1 para 36 imagens. Pré-carregar os primeiros 12 frames; carregar os demais progressivamente. Desenhar com `requestAnimationFrame`, `devicePixelRatio` limitado a 2 e `object-fit: contain` equivalente. No mobile, manter os produtos mais pequenos e posicionados ao centro, ajustar títulos em CSS. Respeitar `prefers-reduced-motion`: mostrar frames 001, 018 e 036 como imagens estáticas de cada secção. Evitar prender/forçar o scroll. Incluir CTA visível e navegação funcional.
+
+## Prompt pronto para Cloud Code
+Cria um website promocional responsivo para FIZZ Moçambique inspirado na estrutura e no movimento do vídeo Mockups.space.mp4. Usa os assets fornecidos em `produtos/` e a sequência `frames/fizz_001.png` a `fizz_036.png`. Reproduz três momentos de scroll: hero verde profundo com tipografia gigante ao fundo e produtos a flutuar (frames 1–12); secção editorial clara de sabor e frescura, transição ondulada, produto laranja em foco (frames 13–24); gama de três sabores sobre pedestais em fundo verde pálido (frames 25–36). O canvas deve ficar sticky e os frames transparentes sobre fundos CSS, sem bordas nem fundos incorporados. Logótipo em `produtos/fizz_logo_oficial.png`. Texto real em HTML, fonte condensada e pesada semelhante à referência, sem copiar marcas ou fotografias de terceiros do vídeo. Fazer a animação por scroll com interpolação suave e `requestAnimationFrame`; pré-carregar imagens, dar fallback estático e respeitar movimento reduzido. Design premium, muito limpo, com composição mobile própria e sem cortar garrafas ou rótulos. Usa apenas afirmações verificadas: FIZZ, Mopani Internacional, «Altamente Refrescante» e sabores dos assets. Não inventar preço, alegações nutricionais ou contactos novos.
+
+## Proveniência e precisão
+`referencias/facebook_capa_original.jpg`: capa pública da página facebook.com/fizzmocambique. `referencias/instagram_*.webp`: publicações públicas de instagram.com/fizz_mopani observadas na consulta. `produtos/`: recortes e reconstruções visuais guiadas por essas fotografias; confirmar rótulos e obter ficheiros oficiais da marca antes de publicação comercial. `fizz_logo_oficial.png` foi isolado da capa, mas não substitui um ficheiro vectorial oficial. As cores de fundo e o texto editorial são propostas para o website; não constituem manual de marca.

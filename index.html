@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="pt" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>FIZZ — Altamente Refrescante</title>
+  <meta name="description" content="FIZZ Moçambique, da Mopani Internacional. Altamente Refrescante — Laranja, Cola e Limão.">
+  <meta name="theme-color" content="#103D24">
+  <link rel="icon" type="image/png" href="assets/img/fizz_logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <link rel="preload" as="image" href="assets/frames/fizz_001.webp" type="image/webp">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script>document.documentElement.classList.replace('no-js', 'js');</script>
+</head>
+<body>
+  <a class="skip" href="#conteudo">Saltar para o conteúdo</a>
+
+  <!-- Barra compacta que aparece depois do hero -->
+  <header class="topbar" aria-label="Navegação rápida">
+    <a class="topbar__logo" href="#inicio" aria-label="FIZZ — início">
+      <img src="assets/img/fizz_logo.png" alt="" width="353" height="212">
+    </a>
+    <nav class="topbar__links">
+      <a href="#sabor">Sabor</a>
+      <a href="#gama">Gama</a>
+      <a class="topbar__cta" href="#gama">Descobrir</a>
+    </nav>
+  </header>
+
+  <main id="conteudo">
+    <div class="story">
+
+      <!-- Palco sticky: canvas com a sequência de frames -->
+      <div class="stage" aria-hidden="true">
+        <div class="stage__sticky">
+          <div class="plinths">
+            <div class="plinth plinth--l" style="--x:26.9%; --w:17%; --h:26%;"><span>Laranja</span></div>
+            <div class="plinth plinth--c" style="--x:49.3%; --w:20%; --h:30%;"><span>Cola</span></div>
+            <div class="plinth plinth--r" style="--x:75.7%; --w:17%; --h:26%;"><span>Limão</span></div>
+          </div>
+          <canvas class="stage__canvas"></canvas>
+        </div>
+      </div>
+
+      <!-- 1 · HERO -->
+      <section class="hero" id="inicio" aria-labelledby="hero-title">
+        <div class="hero__pin">
+          <div class="dabs dabs--light" data-dabs="22" data-seed="7"></div>
+
+          <nav class="nav" aria-label="Principal">
+            <a class="nav__link" href="#sabor">Sabor</a>
+            <span class="nav__line"></span>
+            <a class="nav__logo" href="#inicio" aria-label="FIZZ — início">
+              <img src="assets/img/fizz_logo.png" alt="FIZZ" width="353" height="212">
+            </a>
+            <span class="nav__line"></span>
+            <a class="nav__link" href="#gama">Gama</a>
+          </nav>
+
+          <h1 class="hero__title" id="hero-title">
+            <span class="hero__eyebrow">Altamente</span>
+            <span class="hero__word">Refrescante</span>
+          </h1>
+
+          <img class="static-shot static-shot--hero" src="assets/frames/fizz_001.webp" alt="Garrafas FIZZ Limão e FIZZ Cola" width="1600" height="900">
+
+          <div class="hero__foot">
+            <p class="hero__copy">FIZZ, da Mopani Internacional. Frescura em cada gole, com os sabores Laranja, Cola e Limão.</p>
+            <a class="btn" href="#gama">Descobrir sabores</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- 2 · EDITORIAL -->
+      <section class="sabor" id="sabor" aria-labelledby="sabor-title">
+        <svg class="wave wave--top" viewBox="0 0 2880 160" preserveAspectRatio="none" aria-hidden="true">
+          <path d="M0 96 C 180 40 360 40 540 88 S 900 150 1080 100 S 1260 30 1440 96 C 1620 40 1800 40 1980 88 S 2340 150 2520 100 S 2700 30 2880 96 V160 H0 Z"/>
+        </svg>
+        <div class="dabs dabs--warm" data-dabs="26" data-seed="21"></div>
+
+        <h2 class="sabor__title" id="sabor-title">
+          <span data-reveal>Sabor que</span>
+          <span data-reveal>acompanha</span>
+          <span data-reveal>cada momento</span>
+        </h2>
+
+        <div class="sabor__grid">
+          <figure class="moment" data-reveal>
+            <img src="assets/img/momento.webp" alt="Pessoa a beber FIZZ bem gelada" width="312" height="400" loading="lazy">
+          </figure>
+          <div class="sabor__text" data-reveal>
+            <p>Na praia, em casa ou a caminho: abre uma FIZZ bem gelada e deixa a frescura falar mais alto.</p>
+            <a class="btn btn--ink" href="#gama">Ver a gama</a>
+          </div>
+          <img class="static-shot static-shot--sabor" src="assets/frames/fizz_018.webp" alt="Garrafa FIZZ Laranja" width="1600" height="900" loading="lazy">
+        </div>
+
+        <div class="marquee" data-marquee aria-hidden="true">
+          <div class="marquee__track">Altamente Refrescante <i>✦</i> Altamente Refrescante <i>✦</i></div>
+        </div>
+      </section>
+
+      <!-- 3 · GAMA -->
+      <section class="gama" id="gama" aria-labelledby="gama-title">
+        <div class="gama__pin">
+          <div class="dabs dabs--green" data-dabs="18" data-seed="42"></div>
+          <header class="gama__head">
+            <p class="eyebrow">A gama FIZZ</p>
+            <h2 class="gama__title" id="gama-title">Três sabores.<br>Uma só FIZZ.</h2>
+          </header>
+
+          <img class="static-shot static-shot--gama" src="assets/frames/fizz_036.webp" alt="FIZZ Laranja, FIZZ Cola e FIZZ Limão" width="1600" height="900" loading="lazy">
+
+          <ul class="gama__list">
+            <li><i style="--c:#F39A1E"></i>Laranja</li>
+            <li><i style="--c:#5A1A12"></i>Cola</li>
+            <li><i style="--c:#6CC83A"></i>Limão</li>
+          </ul>
+          <div class="gama__foot">
+            <p>Escolhe o teu sabor e sente a frescura FIZZ.</p>
+            <a class="btn" href="https://www.instagram.com/fizz_mopani/" target="_blank" rel="noopener">Seguir @fizz_mopani</a>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- RODAPÉ -->
+    <footer class="footer" id="contactos">
+      <svg class="wave wave--footer" viewBox="0 0 2880 160" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M0 96 C 180 40 360 40 540 88 S 900 150 1080 100 S 1260 30 1440 96 C 1620 40 1800 40 1980 88 S 2340 150 2520 100 S 2700 30 2880 96 V160 H0 Z"/>
+      </svg>
+      <div class="dabs dabs--light" data-dabs="14" data-seed="3"></div>
+      <img class="footer__logo" src="assets/img/fizz_logo.png" alt="FIZZ — Altamente Refrescante" width="353" height="212" loading="lazy">
+      <p class="footer__word" aria-hidden="true">Altamente<br>Refrescante</p>
+      <div class="footer__row">
+        <nav class="footer__nav" aria-label="Rodapé">
+          <a href="#inicio">Início</a>
+          <a href="#sabor">Sabor</a>
+          <a href="#gama">Gama</a>
+        </nav>
+        <nav class="footer__social" aria-label="Redes sociais">
+          <a href="https://www.facebook.com/fizzmocambique" target="_blank" rel="noopener">Facebook</a>
+          <a href="https://www.instagram.com/fizz_mopani/" target="_blank" rel="noopener">Instagram</a>
+        </nav>
+      </div>
+      <p class="footer__legal">FIZZ · Mopani Internacional</p>
+    </footer>
+  </main>
+
+  <script src="assets/js/main.js" defer></script>
+</body>
+</html>
