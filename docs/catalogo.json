@@ -1,0 +1,98 @@
+[
+  {
+    "id": "uva",
+    "produto": "Uva",
+    "categoria": "Refrigerante",
+    "imagem": "produtos/fizz_uva.png",
+    "cor_interface_sugerida": "#a0154a",
+    "fonte_confirmacao": "capa pública Facebook FIZZ",
+    "preco": null,
+    "volume_atual": null,
+    "unidades_por_caixa": null,
+    "disponibilidade_atual": "Confirmar com Mopani"
+  },
+  {
+    "id": "framboesa",
+    "produto": "Framboesa",
+    "categoria": "Refrigerante",
+    "imagem": "produtos/fizz_framboesa.png",
+    "cor_interface_sugerida": "#ec264e",
+    "fonte_confirmacao": "catálogo Mopani e redes sociais",
+    "preco": null,
+    "volume_atual": null,
+    "unidades_por_caixa": null,
+    "disponibilidade_atual": "Confirmar com Mopani"
+  },
+  {
+    "id": "limao",
+    "produto": "Limão",
+    "categoria": "Refrigerante",
+    "imagem": "produtos/fizz_limao.png",
+    "cor_interface_sugerida": "#8dd827",
+    "fonte_confirmacao": "catálogo Mopani e redes sociais",
+    "preco": null,
+    "volume_atual": null,
+    "unidades_por_caixa": null,
+    "disponibilidade_atual": "Confirmar com Mopani"
+  },
+  {
+    "id": "cola",
+    "produto": "Cola",
+    "categoria": "Refrigerante",
+    "imagem": "produtos/fizz_cola.png",
+    "cor_interface_sugerida": "#702522",
+    "fonte_confirmacao": "catálogo Mopani e redes sociais",
+    "preco": null,
+    "volume_atual": null,
+    "unidades_por_caixa": null,
+    "disponibilidade_atual": "Confirmar com Mopani"
+  },
+  {
+    "id": "laranja",
+    "produto": "Laranja",
+    "categoria": "Refrigerante",
+    "imagem": "produtos/fizz_laranja.png",
+    "cor_interface_sugerida": "#f58019",
+    "fonte_confirmacao": "catálogo Mopani e redes sociais",
+    "preco": null,
+    "volume_atual": null,
+    "unidades_por_caixa": null,
+    "disponibilidade_atual": "Confirmar com Mopani"
+  },
+  {
+    "id": "ananas",
+    "produto": "Ananás",
+    "categoria": "Refrigerante",
+    "imagem": "produtos/fizz_ananas.png",
+    "cor_interface_sugerida": "#f3c700",
+    "fonte_confirmacao": "catálogo Mopani e redes sociais",
+    "preco": null,
+    "volume_atual": null,
+    "unidades_por_caixa": null,
+    "disponibilidade_atual": "Confirmar com Mopani"
+  },
+  {
+    "id": "litchi",
+    "produto": "Litchi",
+    "categoria": "Refrigerante",
+    "imagem": "produtos/fizz_litchi.png",
+    "cor_interface_sugerida": "#e79fb9",
+    "fonte_confirmacao": "catálogo Mopani e redes sociais",
+    "preco": null,
+    "volume_atual": null,
+    "unidades_por_caixa": null,
+    "disponibilidade_atual": "Confirmar com Mopani"
+  },
+  {
+    "id": "energy",
+    "produto": "Energy Drink",
+    "categoria": "Bebida energética",
+    "imagem": "produtos/fizz_energy.png",
+    "cor_interface_sugerida": "#1f1d26",
+    "fonte_confirmacao": "catálogo Mopani e redes sociais",
+    "preco": null,
+    "volume_atual": null,
+    "unidades_por_caixa": null,
+    "disponibilidade_atual": "Confirmar com Mopani"
+  }
+]

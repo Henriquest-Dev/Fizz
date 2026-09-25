@@ -1,6 +1,8 @@
 # FIZZ — Altamente Refrescante
 
-Site promocional responsivo para a FIZZ Moçambique (Mopani Internacional). A estrutura, o scroll e o movimento seguem o vídeo de referência `Mockups.space.mp4`, adaptados aos assets e ao guia em [`docs/GUIA_CLOUD_CODE.md`](docs/GUIA_CLOUD_CODE.md).
+Landing page responsiva da FIZZ Moçambique (Mopani Internacional). A estrutura e o movimento seguem o vídeo de referência (`Mockups.space.mp4`) e os guias em [`docs/`](docs/).
+
+**Online:** https://henriquest-dev.github.io/Fizz/ (publicado automaticamente a cada push; ver `.github/workflows/pages.yml`).
 
 ## Ver localmente
 
@@ -11,38 +13,77 @@ python3 -m http.server 8000
 # abrir http://localhost:8000
 ```
 
+## Secções
+
+| Âncora | Conteúdo |
+| --- | --- |
+| `#inicio` | Hero verde com Limão + Cola à frente de «REFRESCANTE»; «Ver produtos» e «Comprar por grosso» |
+| `#sabores` | Título editorial, fotografia, e os oito sabores um a um ao longo do scroll (nome, cor e botão mudam com o sabor) |
+| `#gama` | As oito garrafas abrem-se em arco sobre um palco |
+| `#produtos` | Grelha dos oito produtos com filtros (Refrigerantes / Bebida energética) e detalhe em janela |
+| `#contactos` | Separadores **Compra por grosso** (pedido de cotação), **Fornecedores** (proposta) e **Geral**, mais contactos directos e «Sobre» |
+| `#newsletter` | Subscrição de novidades |
+
 ## Estrutura
 
 ```
-index.html              marcação e texto (tudo em HTML, sem texto em imagem)
-assets/css/style.css    layout, tipografia, ondas, pedestais, mobile e movimento reduzido
-assets/js/main.js       canvas sticky, mapeamento scroll → frames, parallax, marquee
-assets/frames/          fizz_001–036.webp (1600×900, RGBA transparente)
-assets/img/             logótipo e fotografia da secção editorial
-docs/                   guia original
+index.html               marcação, texto e cartões de produto (HTML estático, bom para SEO)
+assets/css/style.css     layout, tipografia, mobile/tablet, movimento reduzido
+assets/js/data.js        catálogo e destinos dos formulários  ← configurar aqui
+assets/js/main.js        canvas sticky e coreografia por scroll
+assets/js/forms.js       menu, separadores, filtros, detalhe, validação e envio
+assets/produtos/         oito recortes limpos (WebP grande + versão para cartões)
+assets/img/              logótipo e fotografia editorial
+docs/                    guias e catalogo.json do kit
 ```
 
-## Os três momentos do scroll
+## Animação
 
-| Secção | Fundo | Frames | Vídeo de referência |
-| --- | --- | --- | --- |
-| Hero `#inicio` | verde profundo `#103D24` | 1–12: Limão + Cola a flutuar à frente de «REFRESCANTE» | latas à frente de «REFRESHING» |
-| Editorial `#sabor` | creme `#FCEBD2`, onda SVG | 13–24: Laranja entra e cresce; título «Sabor que acompanha cada momento», foto em dois círculos, marquee «Altamente Refrescante» | borda rasgada → «Refreshing drinks without a hangover», foto, «No hangover» |
-| Gama `#gama` | verde pálido `#E4F4DC` | 25–36: Laranja, Cola e Limão abrem para três pedestais em CSS com os nomes | quatro latas sobre pedestais |
+As garrafas são desenhadas num `<canvas>` sticky a partir dos recortes limpos, reproduzindo a coreografia dos frames do kit (medida frame a frame):
 
-Uma onda verde fecha a página no rodapé, como o regresso ao início no vídeo.
+- **Hero:** Limão de −10° para −6° e Cola de 14° para 10°, a flutuar.
+- **Sabores:** a garrafa principal (≈ 77 % da altura) desliza para a esquerda e desvanece; a seguinte entra pela direita (≈ 59 %, semitransparente) e ocupa o lugar. A ordem é Uva, Framboesa, Limão, Cola, Laranja, Ananás, Litchi e Energy Drink.
+- **Gama:** as oito abrem em arco, com o centro atrás e as pontas à frente.
 
-## Como funciona a animação
+Usar os recortes em vez dos 52 PNG do kit dá movimento contínuo (interpolado, sem saltos de 4 imagens por transição) e nenhum halo. Também reduz o peso: cerca de 1 MB contra dezenas.
 
-- Há um único `<canvas>` sticky sobre as três secções. O scroll de cada secção é mapeado para o seu conjunto de 12 frames. Entre secções, as garrafas atravessam a onda: o conjunto que sai sobe e desvanece e o que entra sobe de baixo.
-- O scroll é suavizado com interpolação e `requestAnimationFrame`. `devicePixelRatio` fica limitado a 2 e as garrafas são posicionadas por caixa envolvente (equivalente a `object-fit: contain`), por isso nunca são cortadas. Há uma composição própria para telemóvel.
-- Os frames 1–12 carregam primeiro; os restantes vêm em lotes de 4.
-- Com `prefers-reduced-motion: reduce` ou sem JavaScript, o canvas desaparece e ficam imagens estáticas dos frames 001, 018 e 036.
-- O scroll nunca é bloqueado nem forçado. Só se usa `position: sticky`.
+- Scroll suavizado com `requestAnimationFrame`; nunca é bloqueado (só `position: sticky`).
+- `devicePixelRatio` limitado a 2. Limão e Cola carregam primeiro; os restantes vêm em sequência.
+- Com `prefers-reduced-motion: reduce` ou sem JavaScript, o canvas desaparece e ficam composições estáticas.
 
-## Notas sobre os assets
+## Limpeza dos recortes
 
-- Em `fizz_cola.png` e nos frames com a Cola vinha um fundo xadrez "falso" embutido (quadrados cinza/branco opacos à volta da garrafa). Foi removido automaticamente antes de exportar para WebP, protegendo tampas e rótulos.
-- `assets/img/momento.webp` é um recorte, sem texto, de uma publicação pública de instagram.com/fizz_mopani (ver proveniência no guia). As fotografias de terceiros do vídeo não foram usadas.
-- As cores de fundo e o texto editorial são propostas para o site, não manual de marca. Não há preços, alegações nutricionais nem contactos novos. Os links sociais são os das páginas públicas citadas no guia.
-- Antes de publicação comercial, confirmar os rótulos e obter ficheiros oficiais da marca, incluindo um logótipo vectorial.
+Vários PNG do kit tinham o fundo xadrez "falso" embutido (quadrados cinza/branco opacos à volta da garrafa, sobretudo Litchi, Energy e Cola). Outros tinham o corpo com opacidade 250/255, ligeiramente transparente. Cada produto foi processado assim:
+
+1. Opacidade total no corpo da garrafa (alpha ≥ 235 → 255).
+2. Máscara de segmentação **BiRefNet** (`rembg`, modelo `birefnet-general-lite`), que separa a garrafa do xadrez mesmo na Litchi (garrafa branca sobre xadrez branco). Tampas e gargalos transparentes ficam intactos.
+3. Remoção de ilhas soltas, anti-aliasing de 1 px e **descontaminação de cor nas bordas**, sem halo claro nem escuro em fundos verdes ou creme.
+4. Corte justo à garrafa.
+
+Casos especiais:
+
+- **Cola:** não vem no kit v2; foi usada a do primeiro kit, limpa com o mesmo processo.
+- **Ananás:** não existe como produto no kit. Foi extraída do frame `sabores_021`, endireitada (−12°), ampliada 2×, e as bordas foram limpas por cor (xadrez neutro contra corpo amarelo) e simetria da garrafa. A resolução é mais baixa que a dos outros; substituir por fotografia oficial quando existir.
+
+## Formulários
+
+Os formulários têm validação com mensagens em português, NUIT opcional com 9 dígitos, consentimento obrigatório com ligação à política de privacidade, campo *honeypot*, tempo mínimo de preenchimento e limite de um envio a cada 30 s.
+
+**Por agora nada é enviado.** Em `assets/js/data.js`, `endpoints` está vazio, por isso o site valida e mostra a confirmação com a nota «Pré-visualização: o envio ainda não está ligado». Para activar, preencher cada endpoint com o URL de um serviço aprovado (Formspree, Getform, API própria…) que aceite `POST` com `FormData`:
+
+```js
+endpoints: {
+  cotacao: 'https://formspree.io/f/XXXX',
+  fornecedores: 'https://formspree.io/f/YYYY',
+  geral: 'https://formspree.io/f/ZZZZ',
+  newsletter: 'https://…',
+},
+```
+
+## A confirmar antes da publicação comercial
+
+- Contactos de vendas (sales@mopani.co.mz, +258 82 303 7714), tal como indicado no guia.
+- Disponibilidade actual de cada sabor (sobretudo Uva), embalagens e volumes. O site mostra «A confirmar com a Mopani» e não mostra preços.
+- O texto da política de privacidade é uma base a validar.
+- Os recortes são reconstruções; usar ficheiros oficiais e um logótipo vectorial quando existirem.
+- A fotografia editorial vem de uma publicação pública de @fizz_mopani.

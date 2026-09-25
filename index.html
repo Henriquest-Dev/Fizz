@@ -3,43 +3,54 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>FIZZ — Altamente Refrescante</title>
-  <meta name="description" content="FIZZ Moçambique, da Mopani Internacional. Altamente Refrescante — Laranja, Cola e Limão.">
+  <title>FIZZ Moçambique — Altamente Refrescante</title>
+  <meta name="description" content="FIZZ, da Mopani Internacional. Altamente Refrescante: Uva, Framboesa, Limão, Cola, Laranja, Ananás, Litchi e Energy Drink. Compra por grosso, fornecedores e contactos.">
   <meta name="theme-color" content="#103D24">
+  <meta property="og:title" content="FIZZ — Altamente Refrescante">
+  <meta property="og:description" content="Conhece a gama FIZZ da Mopani Internacional e pede uma cotação para compra por grosso.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/produtos/fizz_limao.webp">
   <link rel="icon" type="image/png" href="assets/img/fizz_logo.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;500;700;800&display=swap" rel="stylesheet">
-  <link rel="preload" as="image" href="assets/frames/fizz_001.webp" type="image/webp">
+  <link rel="preload" as="image" href="assets/produtos/fizz_limao.webp" type="image/webp">
+  <link rel="preload" as="image" href="assets/produtos/fizz_cola.webp" type="image/webp">
   <link rel="stylesheet" href="assets/css/style.css">
   <script>document.documentElement.classList.replace('no-js', 'js');</script>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"Brand","name":"FIZZ","slogan":"Altamente Refrescante",
+   "parentOrganization":{"@type":"Organization","name":"Mopani Internacional","url":"https://mopani.co.mz/"},
+   "sameAs":["https://www.facebook.com/fizzmocambique","https://www.instagram.com/fizz_mopani/"]}
+  </script>
 </head>
 <body>
   <a class="skip" href="#conteudo">Saltar para o conteúdo</a>
 
-  <!-- Barra compacta que aparece depois do hero -->
-  <header class="topbar" aria-label="Navegação rápida">
+  <!-- Barra fixa (aparece depois do hero) -->
+  <header class="topbar" aria-label="Navegação">
     <a class="topbar__logo" href="#inicio" aria-label="FIZZ — início">
       <img src="assets/img/fizz_logo.png" alt="" width="353" height="212">
     </a>
-    <nav class="topbar__links">
-      <a href="#sabor">Sabor</a>
-      <a href="#gama">Gama</a>
-      <a class="topbar__cta" href="#gama">Descobrir</a>
+    <nav class="topbar__links" id="menu" aria-label="Principal">
+      <a href="#sabores">Sabores</a>
+      <a href="#produtos">Produtos</a>
+      <a href="#contactos" data-tab="cotacao">Distribuição</a>
+      <a href="#contactos" data-tab="geral">Contactos</a>
     </nav>
+    <a class="topbar__cta" href="#contactos" data-tab="cotacao">Comprar por grosso</a>
+    <button class="topbar__menu" type="button" aria-expanded="false" aria-controls="menu">
+      <span class="sr-only">Abrir menu</span><i></i><i></i>
+    </button>
   </header>
 
   <main id="conteudo">
     <div class="story">
 
-      <!-- Palco sticky: canvas com a sequência de frames -->
+      <!-- Palco sticky: produtos desenhados em canvas a partir dos recortes -->
       <div class="stage" aria-hidden="true">
         <div class="stage__sticky">
-          <div class="plinths">
-            <div class="plinth plinth--l" style="--x:26.9%; --w:17%; --h:26%;"><span>Laranja</span></div>
-            <div class="plinth plinth--c" style="--x:49.3%; --w:20%; --h:30%;"><span>Cola</span></div>
-            <div class="plinth plinth--r" style="--x:75.7%; --w:17%; --h:26%;"><span>Limão</span></div>
-          </div>
+          <div class="podium"></div>
           <canvas class="stage__canvas"></canvas>
         </div>
       </div>
@@ -49,14 +60,20 @@
         <div class="hero__pin">
           <div class="dabs dabs--light" data-dabs="22" data-seed="7"></div>
 
-          <nav class="nav" aria-label="Principal">
-            <a class="nav__link" href="#sabor">Sabor</a>
+          <nav class="nav" aria-label="Secções">
+            <div class="nav__side">
+              <a class="nav__link" href="#sabores">Sabores</a>
+              <a class="nav__link nav__link--wide" href="#produtos">Produtos</a>
+            </div>
             <span class="nav__line"></span>
             <a class="nav__logo" href="#inicio" aria-label="FIZZ — início">
               <img src="assets/img/fizz_logo.png" alt="FIZZ" width="353" height="212">
             </a>
             <span class="nav__line"></span>
-            <a class="nav__link" href="#gama">Gama</a>
+            <div class="nav__side nav__side--end">
+              <a class="nav__link nav__link--wide" href="#contactos" data-tab="cotacao">Distribuição</a>
+              <a class="nav__link" href="#contactos" data-tab="geral">Contactos</a>
+            </div>
           </nav>
 
           <h1 class="hero__title" id="hero-title">
@@ -64,17 +81,23 @@
             <span class="hero__word">Refrescante</span>
           </h1>
 
-          <img class="static-shot static-shot--hero" src="assets/frames/fizz_001.webp" alt="Garrafas FIZZ Limão e FIZZ Cola" width="1600" height="900">
+          <div class="static-hero" aria-hidden="true">
+            <img src="assets/produtos/fizz_limao.webp" alt="" width="414" height="1200">
+            <img src="assets/produtos/fizz_cola.webp" alt="" width="368" height="1200">
+          </div>
 
           <div class="hero__foot">
-            <p class="hero__copy">FIZZ, da Mopani Internacional. Frescura em cada gole, com os sabores Laranja, Cola e Limão.</p>
-            <a class="btn" href="#gama">Descobrir sabores</a>
+            <p class="hero__copy">FIZZ, da Mopani Internacional. Oito sabores para refrescar cada momento.</p>
+            <div class="hero__ctas">
+              <a class="btn" href="#produtos">Ver produtos</a>
+              <a class="btn btn--ghost" href="#contactos" data-tab="cotacao">Comprar por grosso</a>
+            </div>
           </div>
         </div>
       </section>
 
-      <!-- 2 · EDITORIAL -->
-      <section class="sabor" id="sabor" aria-labelledby="sabor-title">
+      <!-- 2 · SABORES -->
+      <section class="sabor" id="sabores" aria-labelledby="sabor-title">
         <svg class="wave wave--top" viewBox="0 0 2880 160" preserveAspectRatio="none" aria-hidden="true">
           <path d="M0 96 C 180 40 360 40 540 88 S 900 150 1080 100 S 1260 30 1440 96 C 1620 40 1800 40 1980 88 S 2340 150 2520 100 S 2700 30 2880 96 V160 H0 Z"/>
         </svg>
@@ -92,9 +115,21 @@
           </figure>
           <div class="sabor__text" data-reveal>
             <p>Na praia, em casa ou a caminho: abre uma FIZZ bem gelada e deixa a frescura falar mais alto.</p>
-            <a class="btn btn--ink" href="#gama">Ver a gama</a>
           </div>
-          <img class="static-shot static-shot--sabor" src="assets/frames/fizz_018.webp" alt="Garrafa FIZZ Laranja" width="1600" height="900" loading="lazy">
+        </div>
+
+        <!-- Os oito sabores, um a um ao longo do scroll -->
+        <div class="flavors" data-flavors>
+          <div class="flavors__pin">
+            <div class="flavors__info" aria-live="polite">
+              <p class="flavors__count"><b data-f-index>01</b> / 08</p>
+              <p class="flavors__name" data-f-name>Uva</p>
+              <p class="flavors__cat" data-f-cat>Refrigerante</p>
+              <a class="btn btn--ink flavors__cta" href="#produtos" data-f-link data-product="uva">Ver produto</a>
+            </div>
+            <ol class="flavors__dots" aria-hidden="true"></ol>
+          </div>
+          <ul class="flavors__static" aria-label="Sabores FIZZ"></ul>
         </div>
 
         <div class="marquee" data-marquee aria-hidden="true">
@@ -108,47 +143,294 @@
           <div class="dabs dabs--green" data-dabs="18" data-seed="42"></div>
           <header class="gama__head">
             <p class="eyebrow">A gama FIZZ</p>
-            <h2 class="gama__title" id="gama-title">Três sabores.<br>Uma só FIZZ.</h2>
+            <h2 class="gama__title" id="gama-title">Oito sabores.<br>Uma só FIZZ.</h2>
           </header>
-
-          <img class="static-shot static-shot--gama" src="assets/frames/fizz_036.webp" alt="FIZZ Laranja, FIZZ Cola e FIZZ Limão" width="1600" height="900" loading="lazy">
-
-          <ul class="gama__list">
-            <li><i style="--c:#F39A1E"></i>Laranja</li>
-            <li><i style="--c:#5A1A12"></i>Cola</li>
-            <li><i style="--c:#6CC83A"></i>Limão</li>
-          </ul>
-          <div class="gama__foot">
-            <p>Escolhe o teu sabor e sente a frescura FIZZ.</p>
-            <a class="btn" href="https://www.instagram.com/fizz_mopani/" target="_blank" rel="noopener">Seguir @fizz_mopani</a>
-          </div>
+          <ul class="gama__static" aria-hidden="true"></ul>
+        </div>
+        <div class="gama__foot">
+          <a class="btn" href="#produtos">Ver todos os produtos</a>
         </div>
       </section>
     </div>
 
-    <!-- RODAPÉ -->
-    <footer class="footer" id="contactos">
-      <svg class="wave wave--footer" viewBox="0 0 2880 160" preserveAspectRatio="none" aria-hidden="true">
-        <path d="M0 96 C 180 40 360 40 540 88 S 900 150 1080 100 S 1260 30 1440 96 C 1620 40 1800 40 1980 88 S 2340 150 2520 100 S 2700 30 2880 96 V160 H0 Z"/>
-      </svg>
-      <div class="dabs dabs--light" data-dabs="14" data-seed="3"></div>
-      <img class="footer__logo" src="assets/img/fizz_logo.png" alt="FIZZ — Altamente Refrescante" width="353" height="212" loading="lazy">
-      <p class="footer__word" aria-hidden="true">Altamente<br>Refrescante</p>
-      <div class="footer__row">
-        <nav class="footer__nav" aria-label="Rodapé">
-          <a href="#inicio">Início</a>
-          <a href="#sabor">Sabor</a>
-          <a href="#gama">Gama</a>
-        </nav>
-        <nav class="footer__social" aria-label="Redes sociais">
-          <a href="https://www.facebook.com/fizzmocambique" target="_blank" rel="noopener">Facebook</a>
-          <a href="https://www.instagram.com/fizz_mopani/" target="_blank" rel="noopener">Instagram</a>
-        </nav>
+    <!-- 4 · PRODUTOS -->
+    <section class="produtos" id="produtos" aria-labelledby="produtos-title">
+      <header class="section-head">
+        <p class="eyebrow">Produtos</p>
+        <h2 class="section-title" id="produtos-title">Escolhe o teu FIZZ</h2>
+        <p class="section-lead">Imagens ilustrativas. Embalagens e disponibilidade são confirmadas pela equipa comercial da Mopani.</p>
+      </header>
+      <div class="filters" role="group" aria-label="Filtrar produtos">
+        <button type="button" class="chip is-active" data-filter="all" aria-pressed="true">Todos</button>
+        <button type="button" class="chip" data-filter="Refrigerante" aria-pressed="false">Refrigerantes</button>
+        <button type="button" class="chip" data-filter="Bebida energética" aria-pressed="false">Bebida energética</button>
       </div>
-      <p class="footer__legal">FIZZ · Mopani Internacional</p>
-    </footer>
+      <ul class="grid" data-grid>
+        <li data-cat="Refrigerante" style="--c:#A0154A">
+          <a class="pcard" href="#produtos" data-product="uva" aria-haspopup="dialog">
+            <span class="pcard__media"><img src="assets/produtos/fizz_uva_card.webp" alt="Garrafa FIZZ Uva" width="171" height="520" loading="lazy"></span>
+            <span class="pcard__cat">Refrigerante</span>
+            <span class="pcard__name">Uva</span>
+            <span class="pcard__more">Ver detalhes</span>
+          </a>
+        </li>
+        <li data-cat="Refrigerante" style="--c:#EC264E">
+          <a class="pcard" href="#produtos" data-product="framboesa" aria-haspopup="dialog">
+            <span class="pcard__media"><img src="assets/produtos/fizz_framboesa_card.webp" alt="Garrafa FIZZ Framboesa" width="161" height="520" loading="lazy"></span>
+            <span class="pcard__cat">Refrigerante</span>
+            <span class="pcard__name">Framboesa</span>
+            <span class="pcard__more">Ver detalhes</span>
+          </a>
+        </li>
+        <li data-cat="Refrigerante" style="--c:#8DD827">
+          <a class="pcard" href="#produtos" data-product="limao" aria-haspopup="dialog">
+            <span class="pcard__media"><img src="assets/produtos/fizz_limao_card.webp" alt="Garrafa FIZZ Limão" width="179" height="520" loading="lazy"></span>
+            <span class="pcard__cat">Refrigerante</span>
+            <span class="pcard__name">Limão</span>
+            <span class="pcard__more">Ver detalhes</span>
+          </a>
+        </li>
+        <li data-cat="Refrigerante" style="--c:#702522">
+          <a class="pcard" href="#produtos" data-product="cola" aria-haspopup="dialog">
+            <span class="pcard__media"><img src="assets/produtos/fizz_cola_card.webp" alt="Garrafa FIZZ Cola" width="159" height="520" loading="lazy"></span>
+            <span class="pcard__cat">Refrigerante</span>
+            <span class="pcard__name">Cola</span>
+            <span class="pcard__more">Ver detalhes</span>
+          </a>
+        </li>
+        <li data-cat="Refrigerante" style="--c:#F58019">
+          <a class="pcard" href="#produtos" data-product="laranja" aria-haspopup="dialog">
+            <span class="pcard__media"><img src="assets/produtos/fizz_laranja_card.webp" alt="Garrafa FIZZ Laranja" width="172" height="520" loading="lazy"></span>
+            <span class="pcard__cat">Refrigerante</span>
+            <span class="pcard__name">Laranja</span>
+            <span class="pcard__more">Ver detalhes</span>
+          </a>
+        </li>
+        <li data-cat="Refrigerante" style="--c:#F3C700">
+          <a class="pcard" href="#produtos" data-product="ananas" aria-haspopup="dialog">
+            <span class="pcard__media"><img src="assets/produtos/fizz_ananas_card.webp" alt="Garrafa FIZZ Ananás" width="152" height="520" loading="lazy"></span>
+            <span class="pcard__cat">Refrigerante</span>
+            <span class="pcard__name">Ananás</span>
+            <span class="pcard__more">Ver detalhes</span>
+          </a>
+        </li>
+        <li data-cat="Refrigerante" style="--c:#E79FB9">
+          <a class="pcard" href="#produtos" data-product="litchi" aria-haspopup="dialog">
+            <span class="pcard__media"><img src="assets/produtos/fizz_litchi_card.webp" alt="Garrafa FIZZ Litchi" width="153" height="520" loading="lazy"></span>
+            <span class="pcard__cat">Refrigerante</span>
+            <span class="pcard__name">Litchi</span>
+            <span class="pcard__more">Ver detalhes</span>
+          </a>
+        </li>
+        <li data-cat="Bebida energética" style="--c:#1F1D26">
+          <a class="pcard" href="#produtos" data-product="energy" aria-haspopup="dialog">
+            <span class="pcard__media"><img src="assets/produtos/fizz_energy_card.webp" alt="Garrafa FIZZ Energy Drink" width="162" height="520" loading="lazy"></span>
+            <span class="pcard__cat">Bebida energética</span>
+            <span class="pcard__name">Energy Drink</span>
+            <span class="pcard__more">Ver detalhes</span>
+          </a>
+        </li>
+      </ul>
+    </section>
+
+    <!-- 5 · CONTACTOS / DISTRIBUIÇÃO / FORNECEDORES -->
+    <section class="contactos" id="contactos" aria-labelledby="contactos-title">
+      <div class="dabs dabs--light" data-dabs="12" data-seed="11"></div>
+      <header class="section-head section-head--light">
+        <p class="eyebrow">Fala connosco</p>
+        <h2 class="section-title" id="contactos-title">Distribuição, fornecedores e contactos</h2>
+      </header>
+
+      <div class="contact">
+        <div class="contact__main">
+          <div class="tabs" role="tablist" aria-label="Tipo de contacto">
+            <button type="button" role="tab" id="tab-cotacao" aria-controls="panel-cotacao" aria-selected="true">Compra por grosso</button>
+            <button type="button" role="tab" id="tab-fornecedores" aria-controls="panel-fornecedores" aria-selected="false" tabindex="-1">Fornecedores</button>
+            <button type="button" role="tab" id="tab-geral" aria-controls="panel-geral" aria-selected="false" tabindex="-1">Geral</button>
+          </div>
+
+          <!-- Cotação -->
+          <div class="panel" role="tabpanel" id="panel-cotacao" aria-labelledby="tab-cotacao">
+            <p class="panel__lead">Distribuidores, comércio, restauração e compradores institucionais: diz-nos o que precisas e a equipa comercial entra em contacto contigo com uma proposta.</p>
+            <form class="form" data-form="cotacao" novalidate>
+              <div class="hp" aria-hidden="true"><label>Website <input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
+              <div class="form__grid">
+                <div class="field"><label for="c-nome">Nome *</label><input id="c-nome" name="nome" required autocomplete="name"></div>
+                <div class="field"><label for="c-empresa">Empresa *</label><input id="c-empresa" name="empresa" required autocomplete="organization"></div>
+                <div class="field"><label for="c-nuit">NUIT <span>(opcional)</span></label><input id="c-nuit" name="nuit" inputmode="numeric" pattern="[0-9]{9}" data-msg="O NUIT tem 9 dígitos."></div>
+                <div class="field"><label for="c-tipo">Tipo de cliente *</label>
+                  <select id="c-tipo" name="tipo_cliente" required>
+                    <option value="">Seleccionar</option><option>Distribuidor</option><option>Comércio / retalho</option><option>Restauração e hotelaria</option><option>Institucional</option><option>Outro</option>
+                  </select></div>
+                <div class="field"><label for="c-tel">Telefone *</label><input id="c-tel" name="telefone" type="tel" required autocomplete="tel" pattern="[0-9 +\(\)\-]{8,}" data-msg="Indica um número de telefone válido."></div>
+                <div class="field"><label for="c-email">Email *</label><input id="c-email" name="email" type="email" required autocomplete="email"></div>
+                <div class="field"><label for="c-prov">Província *</label>
+                  <select id="c-prov" name="provincia" required data-provincias><option value="">Seleccionar</option></select></div>
+                <div class="field"><label for="c-local">Local de entrega *</label><input id="c-local" name="local_entrega" required placeholder="Cidade, bairro ou armazém"></div>
+                <fieldset class="field field--full" data-group-required>
+                  <legend>Produtos *</legend>
+                  <div class="checks" data-product-checks></div>
+                </fieldset>
+                <div class="field"><label for="c-qtd">Quantidade estimada *</label><input id="c-qtd" name="quantidade" required placeholder="Ex.: 50 caixas"></div>
+                <div class="field"><label for="c-per">Periodicidade *</label>
+                  <select id="c-per" name="periodicidade" required>
+                    <option value="">Seleccionar</option><option>Pontual</option><option>Semanal</option><option>Quinzenal</option><option>Mensal</option><option>Outra</option>
+                  </select></div>
+                <div class="field field--full"><label for="c-msg">Mensagem</label><textarea id="c-msg" name="mensagem" rows="4"></textarea></div>
+              </div>
+              <label class="consent"><input type="checkbox" name="consentimento" required> <span>Aceito que a Mopani use estes dados para responder a este pedido, de acordo com a <a href="#privacidade" data-open="privacidade">política de privacidade</a>. *</span></label>
+              <div class="form__foot">
+                <button class="btn" type="submit">Pedir cotação</button>
+                <p class="form__note">Sem preços nem prazos automáticos: a equipa comercial responde ao teu pedido.</p>
+              </div>
+              <p class="form__status" role="status" aria-live="polite"></p>
+            </form>
+          </div>
+
+          <!-- Fornecedores -->
+          <div class="panel" role="tabpanel" id="panel-fornecedores" aria-labelledby="tab-fornecedores" hidden>
+            <p class="panel__lead">Tens uma proposta de fornecimento ou de serviços? Apresenta a tua empresa. A submissão não corresponde a um concurso aberto nem implica homologação.</p>
+            <form class="form" data-form="fornecedores" novalidate>
+              <div class="hp" aria-hidden="true"><label>Website <input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
+              <div class="form__grid">
+                <div class="field"><label for="f-empresa">Empresa *</label><input id="f-empresa" name="empresa" required autocomplete="organization"></div>
+                <div class="field"><label for="f-pessoa">Pessoa de contacto *</label><input id="f-pessoa" name="pessoa_contacto" required autocomplete="name"></div>
+                <div class="field"><label for="f-cat">Categoria *</label>
+                  <select id="f-cat" name="categoria" required>
+                    <option value="">Seleccionar</option><option>Matérias-primas</option><option>Embalagem</option><option>Logística e transporte</option><option>Equipamento e manutenção</option><option>Serviços</option><option>Outro</option>
+                  </select></div>
+                <div class="field"><label for="f-local">Localização *</label><input id="f-local" name="localizacao" required></div>
+                <div class="field"><label for="f-tel">Telefone *</label><input id="f-tel" name="telefone" type="tel" required autocomplete="tel" pattern="[0-9 +\(\)\-]{8,}" data-msg="Indica um número de telefone válido."></div>
+                <div class="field"><label for="f-email">Email *</label><input id="f-email" name="email" type="email" required autocomplete="email"></div>
+                <div class="field field--full"><label for="f-cap">Capacidades *</label><textarea id="f-cap" name="capacidades" rows="3" required placeholder="O que fornecem, volumes, certificações, cobertura"></textarea></div>
+                <div class="field field--full"><label for="f-prop">Proposta *</label><textarea id="f-prop" name="proposta" rows="4" required></textarea></div>
+              </div>
+              <label class="consent"><input type="checkbox" name="consentimento" required> <span>Aceito que a Mopani use estes dados para avaliar esta proposta, de acordo com a <a href="#privacidade" data-open="privacidade">política de privacidade</a>. *</span></label>
+              <div class="form__foot"><button class="btn" type="submit">Enviar proposta</button></div>
+              <p class="form__status" role="status" aria-live="polite"></p>
+            </form>
+          </div>
+
+          <!-- Geral -->
+          <div class="panel" role="tabpanel" id="panel-geral" aria-labelledby="tab-geral" hidden>
+            <p class="panel__lead">Perguntas, sugestões ou imprensa: escreve-nos.</p>
+            <form class="form" data-form="geral" novalidate>
+              <div class="hp" aria-hidden="true"><label>Website <input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
+              <div class="form__grid">
+                <div class="field"><label for="g-nome">Nome *</label><input id="g-nome" name="nome" required autocomplete="name"></div>
+                <div class="field"><label for="g-email">Email *</label><input id="g-email" name="email" type="email" required autocomplete="email"></div>
+                <div class="field"><label for="g-tel">Telefone</label><input id="g-tel" name="telefone" type="tel" autocomplete="tel" pattern="[0-9 +\(\)\-]{8,}" data-msg="Indica um número de telefone válido."></div>
+                <div class="field"><label for="g-assunto">Assunto *</label>
+                  <select id="g-assunto" name="assunto" required>
+                    <option value="">Seleccionar</option><option>Informação sobre produtos</option><option>Imprensa e parcerias</option><option>Sugestão</option><option>Outro</option>
+                  </select></div>
+                <div class="field field--full"><label for="g-msg">Mensagem *</label><textarea id="g-msg" name="mensagem" rows="5" required></textarea></div>
+              </div>
+              <label class="consent"><input type="checkbox" name="consentimento" required> <span>Aceito que a Mopani use estes dados para responder, de acordo com a <a href="#privacidade" data-open="privacidade">política de privacidade</a>. *</span></label>
+              <div class="form__foot"><button class="btn" type="submit">Enviar mensagem</button></div>
+              <p class="form__status" role="status" aria-live="polite"></p>
+            </form>
+          </div>
+        </div>
+
+        <aside class="contact__aside" aria-label="Contactos directos">
+          <div class="card">
+            <h3>Vendas</h3>
+            <p><a href="mailto:sales@mopani.co.mz">sales@mopani.co.mz</a></p>
+            <p><a href="tel:+258823037714">+258 82 303 7714</a></p>
+          </div>
+          <div class="card">
+            <h3>Redes sociais</h3>
+            <p><a href="https://www.facebook.com/fizzmocambique" target="_blank" rel="noopener">Facebook · fizzmocambique</a></p>
+            <p><a href="https://www.instagram.com/fizz_mopani/" target="_blank" rel="noopener">Instagram · @fizz_mopani</a></p>
+          </div>
+          <div class="card" id="sobre">
+            <h3>Sobre</h3>
+            <p>FIZZ é uma marca da Mopani Internacional.</p>
+            <p><a href="https://mopani.co.mz/home/aboutus/" target="_blank" rel="noopener">Conhecer a Mopani</a></p>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- 6 · NEWSLETTER -->
+    <section class="news" id="newsletter" aria-labelledby="news-title">
+      <div class="news__inner">
+        <div>
+          <h2 class="news__title" id="news-title">Fica por dentro</h2>
+          <p>Novos sabores, campanhas e novidades FIZZ no teu email.</p>
+        </div>
+        <form class="news__form" data-form="newsletter" novalidate>
+          <div class="hp" aria-hidden="true"><label>Website <input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
+          <div class="news__row">
+            <label class="sr-only" for="n-email">Email</label>
+            <input id="n-email" name="email" type="email" required placeholder="o.teu@email.com" autocomplete="email">
+            <button class="btn btn--ink" type="submit">Subscrever</button>
+          </div>
+          <label class="consent consent--dark"><input type="checkbox" name="consentimento" required> <span>Quero receber comunicações FIZZ e aceito a <a href="#privacidade" data-open="privacidade">política de privacidade</a>. Posso cancelar a qualquer momento.</span></label>
+          <p class="form__status" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
   </main>
 
+  <!-- RODAPÉ -->
+  <footer class="footer">
+    <svg class="wave wave--footer" viewBox="0 0 2880 160" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M0 96 C 180 40 360 40 540 88 S 900 150 1080 100 S 1260 30 1440 96 C 1620 40 1800 40 1980 88 S 2340 150 2520 100 S 2700 30 2880 96 V160 H0 Z"/>
+    </svg>
+    <div class="dabs dabs--light" data-dabs="14" data-seed="3"></div>
+    <img class="footer__logo" src="assets/img/fizz_logo.png" alt="FIZZ — Altamente Refrescante" width="353" height="212" loading="lazy">
+    <p class="footer__word" aria-hidden="true">Altamente<br>Refrescante</p>
+    <div class="footer__row">
+      <nav class="footer__nav" aria-label="Rodapé">
+        <a href="#inicio">Início</a>
+        <a href="#sabores">Sabores</a>
+        <a href="#produtos">Produtos</a>
+        <a href="#contactos" data-tab="cotacao">Distribuição</a>
+        <a href="#contactos" data-tab="fornecedores">Fornecedores</a>
+        <a href="#contactos" data-tab="geral">Contactos</a>
+      </nav>
+      <nav class="footer__social" aria-label="Redes sociais">
+        <a href="https://www.facebook.com/fizzmocambique" target="_blank" rel="noopener">Facebook</a>
+        <a href="https://www.instagram.com/fizz_mopani/" target="_blank" rel="noopener">Instagram</a>
+      </nav>
+    </div>
+    <p class="footer__legal">FIZZ · Mopani Internacional · <a href="#privacidade" data-open="privacidade">Privacidade</a></p>
+  </footer>
+
+  <!-- Detalhe de produto -->
+  <dialog class="modal modal--product" id="produto" aria-labelledby="p-name">
+    <button class="modal__close" type="button" data-close aria-label="Fechar">×</button>
+    <div class="pd">
+      <div class="pd__media"><img data-p-img src="" alt="" width="400" height="1200"></div>
+      <div class="pd__body">
+        <p class="eyebrow" data-p-cat></p>
+        <h2 class="pd__name" id="p-name" data-p-name></h2>
+        <p class="pd__desc" data-p-desc></p>
+        <dl class="pd__facts">
+          <div><dt>Embalagem</dt><dd>A confirmar com a Mopani</dd></div>
+          <div><dt>Disponibilidade</dt><dd data-p-disp></dd></div>
+        </dl>
+        <a class="btn" href="#contactos" data-p-quote>Pedir cotação</a>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- Privacidade -->
+  <dialog class="modal" id="privacidade" aria-labelledby="priv-title">
+    <button class="modal__close" type="button" data-close aria-label="Fechar">×</button>
+    <div class="prose">
+      <h2 id="priv-title">Política de privacidade</h2>
+      <p>Os dados enviados através dos formulários deste site (nome, empresa, contactos e mensagem) são usados apenas para responder ao pedido feito: cotação, proposta de fornecimento, contacto geral ou subscrição de novidades.</p>
+      <p>Os dados não são vendidos nem cedidos a terceiros para fins comerciais. Podes pedir acesso, correcção ou eliminação dos teus dados, ou cancelar a subscrição, através dos contactos indicados nesta página.</p>
+      <p>Este site não usa cookies de publicidade. Os tipos de letra são carregados a partir do Google Fonts.</p>
+      <p class="prose__note">Texto de base, a validar pela Mopani Internacional antes da publicação comercial.</p>
+    </div>
+  </dialog>
+
+  <script src="assets/js/data.js" defer></script>
   <script src="assets/js/main.js" defer></script>
+  <script src="assets/js/forms.js" defer></script>
 </body>
 </html>
